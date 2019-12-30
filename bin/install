@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# # Install specific requirements
+bin/stop
+# source bin/env || exit
+pip install $* || exit
+pip freeze > portfolio/requirements.txt
+docker-compose build
+docker-compose up
